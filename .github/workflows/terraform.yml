@@ -46,7 +46,6 @@ env:
   TF_CLOUD_ORGANIZATION: ${{ vars.TF_CLOUD_ORGANIZATION }}
   TF_CLOUD_PROJECT: ${{ vars.TF_CLOUD_PROJECT }}
   TF_WORKSPACE: colors-infra-base-${{ vars.ENV }}
-  LONG_ENV_NAME: ${{ github.ref == 'refs/heads/main' && 'production' || 'develop' }}
 
 name: 'Terraform'
 
@@ -62,7 +61,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: ${{ vars.LONG_ENV_NAME }}
+    environment: ${{ github.ref == 'refs/heads/main' && 'production' || 'develop' }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
