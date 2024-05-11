@@ -42,6 +42,11 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+env:
+  TF_CLOUD_ORGANIZATION: "${{ vars.TF_CLOUD_ORGANIZATION }}"
+  TF_CLOUD_PROJECT: "${{ vars.TF_CLOUD_PROJECT }}"
+  TF_WORKSPACE: colors-infra-base-"${{ vars.ENV }}"
+
 name: 'Terraform'
 
 on:
