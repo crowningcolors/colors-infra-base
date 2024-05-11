@@ -1,10 +1,5 @@
 terraform {
     cloud {
-        organization = "crowningcolors"
-
-        workspaces {
-            project = "colors"
-        }
     }
 }
 
