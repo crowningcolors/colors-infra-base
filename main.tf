@@ -1,9 +1,9 @@
 terraform {
-    backend "remote" {
-        organization = var.organization
+    cloud {
+        organization = "crowningcolors"
 
         workspaces {
-            name = "colors-base-infra-${var.env}"
+            project = "colors"
         }
     }
 }
