@@ -86,16 +86,8 @@ jobs:
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color --var-file=./variables/${{ vars.ENV }}.tfvars
-      continue-on-error: true
-
-    - run: echo ${{ steps.plan.outputs.stdout }}
-    - run: echo ${{ steps.plan.outputs.stderr }}
-    - run: echo ${{ steps.plan.outputs.exitcode }}      
+      continue-on-error: true    
 
     - name: Terraform Apply
       id: apply
       run: terraform apply -auto-approve -input=false --var-file=./variables/${{ vars.ENV }}.tfvars
-
-    - run: echo ${{ steps.apply.outputs.stdout }}
-    - run: echo ${{ steps.apply.outputs.stderr }}
-    - run: echo ${{ steps.apply.outputs.exitcode }}      
